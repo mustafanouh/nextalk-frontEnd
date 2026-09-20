@@ -54,7 +54,7 @@ export function useSendMessage() {
         created_at: new Date().toISOString(),
         status: 'sending',
         sender: currentUser
-          ? { id: currentUser.id, username: currentUser.username, name: currentUser.name, avatar: currentUser.avatar }
+          ? { id: currentUser.id, username: currentUser.username, name: currentUser.name, avatar_thumb_url: currentUser.avatar_thumb_url }
           : undefined,
       };
 

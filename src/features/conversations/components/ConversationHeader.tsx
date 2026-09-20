@@ -19,7 +19,7 @@ export function ConversationHeader({ conversation }: { conversation: Conversatio
         <button onClick={closeMobileConversation} className="text-gray-500 md:hidden" aria-label="رجوع">
           <ArrowRight className="h-5 w-5" />
         </button>
-        <Avatar src={other?.avatar} name={other?.name ?? '?'} />
+        <Avatar src={other?.avatar_thumb_url} name={other?.name ?? '?'} />
         <div>
           <p className="text-sm font-semibold text-gray-900">{other?.name}</p>
           <p className="text-xs text-gray-400">@{other?.username}</p>

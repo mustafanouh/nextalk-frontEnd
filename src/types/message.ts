@@ -23,6 +23,6 @@ export interface Message {
     id: number;
     username: string;
     name: string;
-    avatar: string | null;
+    avatar_thumb_url: string | null;
   };
 }

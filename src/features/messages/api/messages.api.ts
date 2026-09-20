@@ -29,7 +29,9 @@ export const messagesApi = {
 
     return api
       .post<Message>(`/conversations/${conversationId}/messages`, formData, {
-        headers: { 'Content-Type': 'multipart/form-data' },
+        // Do NOT set Content-Type manually here — see users.api.ts for why
+        // (it strips the multipart boundary the browser generates
+        // automatically, corrupting the upload server-side).
         onUploadProgress: (e) => {
           if (onProgress && e.total) onProgress(Math.round((e.loaded / e.total) * 100));
         },

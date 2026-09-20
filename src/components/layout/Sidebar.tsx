@@ -23,7 +23,7 @@ export function Sidebar() {
 
       <div className="flex flex-col items-center gap-3">
         <Link href="/profile" aria-label="الملف الشخصي">
-          <Avatar src={user?.avatar} name={user?.name ?? '?'} size="sm" />
+          <Avatar src={user?.avatar_thumb_url} name={user?.name ?? '?'} size="sm" />
         </Link>
         <button onClick={() => logout.mutate()} className="rounded-lg p-2 text-gray-400 hover:bg-gray-100 hover:text-red-500" aria-label="تسجيل الخروج">
           <LogOut className="h-5 w-5" />

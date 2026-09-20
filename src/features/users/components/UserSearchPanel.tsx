@@ -31,7 +31,7 @@ export function UserSearchPanel({ query, onSelected }: UserSearchPanelProps) {
           }}
           className="flex w-full items-center gap-3 rounded-lg p-2.5 text-right hover:bg-gray-100"
         >
-          <Avatar src={user.avatar} name={user.name} />
+          <Avatar src={user.avatar_thumb_url} name={user.name} />
           <div className="min-w-0 flex-1">
             <p className="truncate text-sm font-medium text-gray-900">{user.name}</p>
             <p className="truncate text-xs text-gray-500">@{user.username}</p>

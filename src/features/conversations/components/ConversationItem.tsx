@@ -34,7 +34,7 @@ export function ConversationItem({ conversation, isActive, onClick }: Conversati
         isActive && 'bg-indigo-50 hover:bg-indigo-50'
       )}
     >
-      <Avatar src={other?.avatar} name={other?.name ?? '?'} />
+      <Avatar src={other?.avatar_thumb_url} name={other?.name ?? '?'} />
       <div className="min-w-0 flex-1">
         <div className="flex items-center justify-between">
           <p className="truncate text-sm font-medium text-gray-900">{other?.name}</p>

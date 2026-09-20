@@ -6,7 +6,7 @@ function required(name: string, value: string | undefined): string {
 }
 
 export const env = {
-  apiUrl: required('NEXT_PUBLIC_API_URL', process.env.NEXT_PUBLIC_API_URL) || 'http://localhost:8000/api',
+  apiUrl: required('NEXT_PUBLIC_API_URL', process.env.NEXT_PUBLIC_API_URL) || 'http://127.0.0.1:8000/api',
   reverb: {
     host: required('NEXT_PUBLIC_REVERB_HOST', process.env.NEXT_PUBLIC_REVERB_HOST) || 'localhost',
     port: Number(process.env.NEXT_PUBLIC_REVERB_PORT ?? 8080),

@@ -39,7 +39,7 @@ export default function CallsPage() {
           return (
             <div key={conversation.id} className="flex items-center justify-between rounded-lg p-2.5 hover:bg-gray-50">
               <div className="flex items-center gap-3">
-                <Avatar src={other?.avatar} name={other?.name ?? '?'} />
+                <Avatar src={other?.avatar_thumb_url} name={other?.name ?? '?'} />
                 <p className="text-sm font-medium text-gray-900">{other?.name}</p>
               </div>
               <div className="flex gap-1">

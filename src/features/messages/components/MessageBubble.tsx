@@ -30,7 +30,13 @@ export function MessageBubble({ message }: { message: Message }) {
               <div key={attachment.id} className="mb-1">
                 {attachment.mime_type.startsWith('image/') ? (
                   <div className="relative h-40 w-56 overflow-hidden rounded-lg">
-                    <Image src={attachment.url} alt={attachment.original_name} fill className="object-cover" />
+                    <Image
+                      src={attachment.url}
+                      alt={attachment.original_name}
+                      fill
+                      sizes="224px"
+                      className="object-cover"
+                    />
                   </div>
                 ) : (
                   <a

@@ -51,7 +51,7 @@ export function ProfileForm() {
 
       <div className="mb-6 flex flex-col items-center gap-2">
         <button onClick={() => fileInputRef.current?.click()} className="relative">
-          <Avatar src={avatarPreview ?? user.avatar} name={user.name} size="lg" />
+          <Avatar src={avatarPreview ?? user.avatar_url} name={user.name} size="lg" />
           <span className="absolute bottom-0 left-0 flex h-6 w-6 items-center justify-center rounded-full bg-indigo-600 text-white">
             <Camera className="h-3.5 w-3.5" />
           </span>
