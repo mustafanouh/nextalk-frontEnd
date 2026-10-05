@@ -48,18 +48,22 @@ api.interceptors.response.use(
 );
 
 function fallbackMessage(status?: number): string {
+  const isEnglish = typeof window !== 'undefined' && localStorage.getItem('locale') === 'en';
+
   switch (status) {
     case 403:
-      return 'ليس لديك صلاحية لتنفيذ هذا الإجراء.';
+      return isEnglish ? 'You are not authorized to perform this action.' : 'ليس لديك صلاحية لتنفيذ هذا الإجراء.';
     case 404:
-      return 'العنصر المطلوب غير موجود.';
+      return isEnglish ? 'The requested item was not found.' : 'العنصر المطلوب غير موجود.';
     case 422:
-      return 'البيانات المدخلة غير صحيحة.';
+      return isEnglish ? 'The provided data is invalid.' : 'البيانات المدخلة غير صحيحة.';
     case 429:
-      return 'محاولات كثيرة جدًا، حاول مرة أخرى بعد قليل.';
+      return isEnglish ? 'Too many attempts. Please try again later.' : 'محاولات كثيرة جدًا، حاول مرة أخرى بعد قليل.';
     case 500:
-      return 'حدث خطأ في الخادم، حاول مرة أخرى.';
+      return isEnglish ? 'A server error occurred. Please try again.' : 'حدث خطأ في الخادم، حاول مرة أخرى.';
     default:
-      return 'حدث خطأ غير متوقع، تحقق من اتصالك بالإنترنت.';
+      return isEnglish
+        ? 'An unexpected error occurred. Please check your internet connection.'
+        : 'حدث خطأ غير متوقع، تحقق من اتصالك بالإنترنت.';
   }
 }
