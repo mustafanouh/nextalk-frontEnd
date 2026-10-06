@@ -14,22 +14,27 @@ export function ConversationList() {
   const { selectedConversationId, setSelectedConversation } = useChatStore();
   const [search, setSearch] = useState('');
   const [showUserSearch, setShowUserSearch] = useState(false);
+  const [language] = useState<'ar' | 'en'>(() => (
+    typeof window !== 'undefined' && localStorage.getItem('locale') === 'en' ? 'en' : 'ar'
+  ));
 
   const conversations = data?.data ?? [];
   const filtered = search
     ? conversations.filter((c) =>
-        c.participants.some((p) => p.name.toLowerCase().includes(search.toLowerCase()))
-      )
+      c.participants.some((p) => p.name.toLowerCase().includes(search.toLowerCase()))
+    )
     : conversations;
 
   return (
     <div className="flex h-full flex-col border-l border-gray-200">
       <div className="border-b border-gray-200 p-3">
-        <h2 className="mb-3 text-lg font-bold text-gray-900">المحادثات</h2>
+        <h2 className="mb-3 text-lg font-bold text-gray-900">
+          {language === 'en' ? 'Chats' : 'المحادثات'}
+        </h2>
         <div className="relative">
           <Search className="absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
           <Input
-            placeholder="بحث في المحادثات أو مستخدمين جدد..."
+            placeholder={language === 'en' ? 'Search chats or new users...' : 'بحث في المحادثات أو مستخدمين جدد...'}
             value={search}
             onChange={(e) => {
               setSearch(e.target.value);

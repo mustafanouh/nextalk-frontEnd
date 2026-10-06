@@ -1,0 +1,39 @@
+{
+  "common": {
+    "appName": "NexTalk",
+    "loading": "جار التحميل...",
+    "save": "حفظ",
+    "cancel": "إلغاء",
+    "delete": "حذف",
+    "edit": "تعديل",
+    "close": "إغلاق",
+    "confirm": "تأكيد"
+  },
+  "navigation": {
+    "chat": "المحادثات",
+    "calls": "المكالمات",
+    "profile": "الملف الشخصي",
+    "logout": "تسجيل الخروج"
+  },
+  "auth": {
+    "login": "تسجيل الدخول",
+    "welcomeBack": "مرحبًا بعودتك",
+    "loginSubtitle": "أدخل بياناتك لتسجيل الدخول",
+    "identifier": "البريد الإلكتروني أو اسم المستخدم",
+    "identifierPlaceholder": "name@example.com",
+    "passwordPlaceholder": "أدخل كلمة المرور",
+    "forgotPasswordLink": "نسيت كلمة المرور؟",
+    "noAccount": "ليس لديك حساب؟",
+    "createAccount": "إنشاء حساب",
+    "register": "إنشاء حساب",
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "forgotPassword": "هل نسيت كلمة المرور؟"
+  },
+  "chat": {
+    "newMessage": "رسالة جديدة",
+    "writeMessage": "اكتب رسالة...",
+    "send": "إرسال",
+    "noMessages": "لا توجد رسائل بعد"
+  }
+}

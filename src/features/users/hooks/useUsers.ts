@@ -27,6 +27,9 @@ export function useUserSearch(query: string) {
 }
 
 export function useUpdateProfile() {
+  const [language] = useState<'ar' | 'en'>(() => (
+    typeof window !== 'undefined' && localStorage.getItem('locale') === 'en' ? 'en' : 'ar'
+  ));
   const updateUser = useAuthStore((s) => s.updateUser);
   const { toast } = useToast();
 
@@ -35,10 +38,17 @@ export function useUpdateProfile() {
     onSuccess: (user) => {
       updateUser(user);
       queryClient.setQueryData(queryKeys.user, user);
-      toast({ title: 'تم تحديث الملف الشخصي', variant: 'success' });
+      toast({
+        title: language === 'en' ? 'Profile updated successfully' : 'تم تحديث الملف الشخصي',
+        variant: 'success',
+      });
     },
     onError: (error: ApiError) => {
-      toast({ title: 'فشل التحديث', description: error.message, variant: 'destructive' });
+      toast({
+        title: language === 'en' ? 'Update failed' : 'فشل التحديث',
+        description: error.message,
+        variant: 'destructive',
+      });
     },
   });
 }

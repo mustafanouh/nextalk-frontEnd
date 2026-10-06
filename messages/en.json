@@ -1,0 +1,39 @@
+{
+  "common": {
+    "appName": "NexTalk",
+    "loading": "Loading...",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "close": "Close",
+    "confirm": "Confirm"
+  },
+  "navigation": {
+    "chat": "Chats",
+    "calls": "Calls",
+    "profile": "Profile",
+    "logout": "Log out"
+  },
+  "auth": {
+    "login": "Log in",
+    "welcomeBack": "Welcome back",
+    "loginSubtitle": "Enter your details to sign in",
+    "identifier": "Email address or username",
+    "identifierPlaceholder": "you@example.com",
+    "passwordPlaceholder": "Enter your password",
+    "forgotPasswordLink": "Forgot password?",
+    "noAccount": "Don't have an account?",
+    "createAccount": "Create account",
+    "register": "Create an account",
+    "email": "Email",
+    "password": "Password",
+    "forgotPassword": "Forgot your password?"
+  },
+  "chat": {
+    "newMessage": "New message",
+    "writeMessage": "Write a message...",
+    "send": "Send",
+    "noMessages": "No messages yet"
+  }
+}

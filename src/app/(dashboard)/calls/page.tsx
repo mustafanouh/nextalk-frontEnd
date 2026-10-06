@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import { useConversations } from '@/features/conversations/hooks/useConversations';
 import { useChatStore } from '@/stores/chat.store';
 import { useRouter } from 'next/navigation';
@@ -16,10 +17,14 @@ import { useAuthStore } from '@/stores/auth.store';
  * the backend if you want a true chronological call log here.
  */
 export default function CallsPage() {
+  const [language] = useState<'ar' | 'en'>(() => (
+    typeof window !== 'undefined' && localStorage.getItem('locale') === 'en' ? 'en' : 'ar'
+  ));
   const { data, isLoading, isError, refetch } = useConversations();
   const setSelectedConversation = useChatStore((s) => s.setSelectedConversation);
   const currentUserId = useAuthStore((s) => s.user?.id);
   const router = useRouter();
+  const isEnglish = language === 'en';
 
   if (isLoading) return <LoadingState />;
   if (isError) return <ErrorState onRetry={() => refetch()} />;
@@ -27,12 +32,17 @@ export default function CallsPage() {
   const conversations = data?.data ?? [];
 
   if (conversations.length === 0) {
-    return <EmptyState title="لا توجد جهات اتصال بعد" description="ابدأ محادثة أولاً لتتمكن من الاتصال" />;
+    return (
+      <EmptyState
+        title={isEnglish ? 'No contacts yet' : 'لا توجد جهات اتصال بعد'}
+        description={isEnglish ? 'Start a conversation first to make a call' : 'ابدأ محادثة أولاً لتتمكن من الاتصال'}
+      />
+    );
   }
 
   return (
     <div className="mx-auto max-w-lg p-4">
-      <h1 className="mb-4 text-xl font-bold text-gray-900">المكالمات</h1>
+      <h1 className="mb-4 text-xl font-bold text-gray-900">{isEnglish ? 'Calls' : 'المكالمات'}</h1>
       <div className="space-y-1">
         {conversations.map((conversation) => {
           const other = conversation.participants.find((p) => p.id !== currentUserId) ?? conversation.participants[0];
@@ -49,7 +59,7 @@ export default function CallsPage() {
                     router.push(`/chat/${conversation.id}`);
                   }}
                   className="rounded-full p-2 text-gray-500 hover:bg-gray-100"
-                  aria-label="اتصال صوتي"
+                  aria-label={isEnglish ? 'Voice call' : 'اتصال صوتي'}
                 >
                   <Phone className="h-4 w-4" />
                 </button>
@@ -59,7 +69,7 @@ export default function CallsPage() {
                     router.push(`/chat/${conversation.id}`);
                   }}
                   className="rounded-full p-2 text-gray-500 hover:bg-gray-100"
-                  aria-label="اتصال فيديو"
+                  aria-label={isEnglish ? 'Video call' : 'اتصال فيديو'}
                 >
                   <Video className="h-4 w-4" />
                 </button>
