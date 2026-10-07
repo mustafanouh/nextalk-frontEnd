@@ -30,6 +30,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
     <QueryProvider>
       <EchoProvider>
         <GlobalAuthGuard>{children}</GlobalAuthGuard>
+    
         <Toaster />
       </EchoProvider>
     </QueryProvider>

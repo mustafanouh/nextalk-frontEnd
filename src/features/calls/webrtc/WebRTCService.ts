@@ -493,10 +493,10 @@ export class WebRTCService {
     if (
       this.pendingIceCandidates.length
     ) {
-      console.log(
-        '[WebRTC] Flushing pending ICE candidates:',
-        this.pendingIceCandidates.length
-      );
+      // console.log(
+      //   '[WebRTC] Flushing pending ICE candidates:',
+      //   this.pendingIceCandidates.length
+      // );
 
       const candidates =
         [...this.pendingIceCandidates];
@@ -566,25 +566,23 @@ export class WebRTCService {
       iceCandidate
     );
 
-    console.log(
-      '[WebRTC] Remote ICE candidate added'
-    );
+    // console.log(
+    //   '[WebRTC] Remote ICE candidate added'
+    // );
   }
 
-  toggleAudio(
-    enabled: boolean
-  ): void {
-    console.log(
-      '[WebRTC] Audio enabled:',
-      enabled
-    );
+  toggleAudio(enabled: boolean): void {
+    // console.log(
+    //   '[WebRTC] Audio enabled:',
+    //   enabled
+    // );
+    // );
 
     this.localStream
       ?.getAudioTracks()
       .forEach(
         (track) => {
-          track.enabled =
-            enabled;
+          track.enabled = enabled;
         }
       );
   }
@@ -592,10 +590,10 @@ export class WebRTCService {
   toggleVideo(
     enabled: boolean
   ): void {
-    console.log(
-      '[WebRTC] Video enabled:',
-      enabled
-    );
+    // console.log(
+    //   '[WebRTC] Video enabled:',
+    //   enabled
+    // );
 
     this.localStream
       ?.getVideoTracks()
